@@ -1,4 +1,4 @@
-CREATE TABLE monthly_plan (
+CREATE TABLE monthly_plans (
     id BINARY(16) PRIMARY KEY DEFAULT (UUID_TO_BIN(UUID())),
     doctor_id BINARY(16) NOT NULL,
     target_month TINYINT NOT NULL, -- 1 to 12
