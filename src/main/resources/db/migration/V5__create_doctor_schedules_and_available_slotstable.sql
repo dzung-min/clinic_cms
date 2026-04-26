@@ -5,7 +5,7 @@ CREATE TABLE monthly_plan (
     target_year INT NOT NULL, -- eg. 2026
     CONSTRAINT fk_plan_doctor FOREIGN KEY (doctor_id) REFERENCES doctors(id) ON DELETE CASCADE,
     CONSTRAINT uq_doctor_month_year UNIQUE (doctor_id, target_month, target_year)
-)
+);
 
 CREATE TABLE doctor_schedules (
     id BINARY(16) PRIMARY KEY DEFAULT (UUID_TO_BIN(UUID())),
@@ -29,5 +29,5 @@ CREATE TABLE available_slots (
     status ENUM('AVAILABLE', 'BOOKED', 'LOCKED') DEFAULT 'AVAILABLE',
     CONSTRAINT fk_slot_doctor FOREIGN KEY (doctor_id) REFERENCES doctors(id) ON DELETE CASCADE,
     CONSTRAINT fk_slot_plan FOREIGN KEY (monthly_plan_id) REFERENCES monthly_plan(id) ON DELETE CASCADE,
-    INDEX (doctor_id, start_date_time) -- Crucial for search performance
+    INDEX (doctor_id, start_time) -- Crucial for search performance
 );
