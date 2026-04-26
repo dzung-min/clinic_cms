@@ -2,6 +2,8 @@ package io.dzung.clinic_cms.model;
 
 import io.dzung.clinic_cms.enums.Role;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +20,8 @@ public class User extends BaseEntity {
     private String lastName;
     private String phone;
     private String email;
+    
+    @Enumerated(value = EnumType.STRING)
     private Role role;
     private Boolean isActive;
 
