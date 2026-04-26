@@ -18,7 +18,16 @@ services:
       timeout: 5s        # Time to wait for a response
       retries: 5         # Number of failures before marking 'unhealthy'
       start_period: 30s  # Grace period for the container to initialize
-
+  
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: dev_user
+      MYSQL_PASSWORD: dev_password
+    ports:
+      - "8081:80"
 
 volumes:
   db_data:
