@@ -28,7 +28,10 @@ public class User extends BaseEntity {
 
     @Column(nullable = false)
     private String email;
-    
+
+    @Column(nullable = false)
+    private String password;
+
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
@@ -42,6 +45,6 @@ public class User extends BaseEntity {
         this.phone = phone;
         this.email = email;
         this.role = role;
-        this.isActive = isActive;
+        this.isActive = isActive != null ? isActive : true;
     }
 }
