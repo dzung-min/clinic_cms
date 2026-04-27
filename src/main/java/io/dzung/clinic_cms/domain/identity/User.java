@@ -1,6 +1,8 @@
-package io.dzung.clinic_cms.model;
+package io.dzung.clinic_cms.domain.identity;
 
-import io.dzung.clinic_cms.enums.Role;
+import io.dzung.clinic_cms.common.enums.Role;
+import io.dzung.clinic_cms.common.model.BaseEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -16,13 +18,21 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class User extends BaseEntity {
+    @Column(nullable = false)
     private String firstName;
+
+    @Column(nullable = false)
     private String lastName;
+
     private String phone;
+
+    @Column(nullable = false)
     private String email;
     
     @Enumerated(value = EnumType.STRING)
     private Role role;
+
+    @Column(nullable = false)
     private Boolean isActive;
 
     @Builder

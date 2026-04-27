@@ -1,8 +1,10 @@
-package io.dzung.clinic_cms.model;
+package io.dzung.clinic_cms.domain.scheduling;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.dzung.clinic_cms.common.model.BaseEntity;
+import io.dzung.clinic_cms.domain.identity.Doctor;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,8 +28,10 @@ public class MonthlyPlan extends BaseEntity {
     @JoinColumn(name = "doctor_id", nullable = false)
     private Doctor doctor;
     
-    @Column(columnDefinition = "TINYINT")
+    @Column(columnDefinition = "TINYINT", nullable = false)
     private Integer targetMonth;
+
+    @Column(nullable = false)
     private Integer targetYear;
 
     @OneToMany(mappedBy = "monthlyPlan", cascade = CascadeType.ALL, orphanRemoval = true)

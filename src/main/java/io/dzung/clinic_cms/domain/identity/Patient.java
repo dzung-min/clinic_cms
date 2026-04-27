@@ -1,8 +1,9 @@
-package io.dzung.clinic_cms.model;
+package io.dzung.clinic_cms.domain.identity;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
@@ -29,6 +30,7 @@ public class Patient {
     @JoinColumn(name = "id")
     private User user;
     
+    @Column(nullable = false)
     private LocalDate dateOfBirth;
 
     @Builder

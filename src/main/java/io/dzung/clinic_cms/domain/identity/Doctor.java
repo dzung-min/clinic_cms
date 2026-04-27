@@ -1,7 +1,8 @@
-package io.dzung.clinic_cms.model;
+package io.dzung.clinic_cms.domain.identity;
 
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
@@ -28,8 +29,13 @@ public class Doctor {
     @JoinColumn(name = "id")
     private User user;
 
+    @Column(nullable = false)
     private String specialty;
+
+    @Column(nullable = false)
     private String bio;
+
+    @Column(nullable = false)
     private int yearsOfExperience;
 
     @Builder

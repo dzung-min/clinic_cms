@@ -1,7 +1,9 @@
-package io.dzung.clinic_cms.model;
+package io.dzung.clinic_cms.domain.scheduling;
 
 import java.time.LocalTime;
 
+import io.dzung.clinic_cms.common.model.BaseEntity;
+import io.dzung.clinic_cms.domain.identity.Doctor;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -27,11 +29,19 @@ public class DoctorSchedule extends BaseEntity {
     @JoinColumn(name = "monthly_plan_id")
     private MonthlyPlan monthlyPlan;
 
-    @Column(columnDefinition = "TINYINT")
+    @Column(columnDefinition = "TINYINT", nullable = false)
     private Integer dayOfWeek;
+
+    @Column(nullable = false)
     private LocalTime startTime;
+
+    @Column(nullable = false)
     private LocalTime endTime;
+
+    @Column(nullable = false)
     private Integer slotDuration;
+
+    @Column(nullable = false)
     private Integer bufferTime;
 
     @Builder

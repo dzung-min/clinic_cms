@@ -1,4 +1,4 @@
-package io.dzung.clinic_cms.model;
+package io.dzung.clinic_cms.common.model;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
