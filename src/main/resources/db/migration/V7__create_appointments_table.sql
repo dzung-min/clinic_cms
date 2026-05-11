@@ -1,4 +1,4 @@
-CREATE TABLE appointments (
+CREATE TABLE IF NOT EXISTS appointments (
     id BINARY(16) PRIMARY KEY DEFAULT (UUID_TO_BIN(UUID())),
     doctor_id BINARY(16) NOT NULL,
     patient_id BINARY(16) NOT NULL,

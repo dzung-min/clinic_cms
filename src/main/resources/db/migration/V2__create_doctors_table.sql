@@ -1,4 +1,4 @@
-CREATE TABLE doctors (
+CREATE TABLE IF NOT EXISTS doctors (
     id BINARY(16) PRIMARY KEY,
     specialty VARCHAR(100) NOT NULL,
     bio TEXT,

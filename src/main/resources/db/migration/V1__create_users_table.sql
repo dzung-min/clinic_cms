@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     -- Using BINARY(16) for performance or CHAR(36) for readability --
     id BINARY(16) PRIMARY KEY DEFAULT (UUID_TO_BIN(UUID())), 
     first_name VARCHAR(50) NOT NULL,
