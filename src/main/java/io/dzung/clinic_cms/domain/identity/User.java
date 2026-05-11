@@ -1,6 +1,5 @@
 package io.dzung.clinic_cms.domain.identity;
 
-import io.dzung.clinic_cms.common.enums.Role;
 import io.dzung.clinic_cms.common.model.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,17 +32,18 @@ public class User extends BaseEntity {
     private String password;
 
     @Enumerated(value = EnumType.STRING)
-    private Role role;
+    private UserRole role;
 
     @Column(nullable = false)
     private Boolean isActive;
 
     @Builder
-    public User(String firstName, String lastName, String phone, String email, Role role, Boolean isActive) {
+    public User(String firstName, String lastName, String phone, String email, String password, UserRole role, Boolean isActive) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
+        this.password = password;
         this.role = role;
         this.isActive = isActive != null ? isActive : true;
     }
