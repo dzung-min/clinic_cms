@@ -1,12 +1,11 @@
 services:
   db:
-    image: mysql:8.3
-    container_name: mysql_db
-    restart: unless-stopped
+    image: mysql:8.4.9
+    container_name: mysql
     env_file:
       - .env
     volumes:
-      - mysql_data:/var/lib/mysql
+      - app_data:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
@@ -19,16 +18,13 @@ services:
       start_period: 30s
 
   phpmyadmin:
-    image: phpmyadmin:5.2
+    image: phpmyadmin:5.2.3
     container_name: phpmyadmin
-    restart: unless-stopped
-    env_file:
-      - .env
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
     ports:
-      - "127.0.0.1:8081:80"
+      - "8081:80"
     depends_on:
       db:
         condition: service_healthy
@@ -36,7 +32,7 @@ services:
       - app_network
 
 volumes:
-  mysql_data:
+  app_data:
 
 networks:
   app_network:
