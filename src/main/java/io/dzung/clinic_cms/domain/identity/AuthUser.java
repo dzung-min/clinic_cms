@@ -7,12 +7,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class AuthUser implements UserDetails {
-    private User user;
+import lombok.RequiredArgsConstructor;
 
-    public AuthUser(User user) {
-        this.user = user;
-    }
+@RequiredArgsConstructor
+public class AuthUser implements UserDetails {
+    private final User user;
 
     public User getUser() {
         return user;
